@@ -20,7 +20,7 @@ fi
 picom &
 
 # wallpaper
-xwallpaper --zoom "$HOME/Pictures/Wallpapers/green.jpg" &
+xwallpaper --zoom "$HOME/pics/walls/green.jpg" &
 #hsetroot -solid '#000000' &
 
 # blue light filter
