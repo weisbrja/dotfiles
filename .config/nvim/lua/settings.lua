@@ -7,9 +7,12 @@ local wo = vim.wo
 local t = require 'termcodes'
 
 -- leader
-api.nvim_set_keymap('', '<space>', '<nop>', {noremap = true, silent = true})
+api.nvim_set_keymap('', '<space>', '<nop>', { noremap = true, silent = true })
 g.mapleader = t '<space>'
 g.maplocalleader = t '<space>'
+
+-- term gui colors
+o.termguicolors = true
 
 -- smart casing
 o.ignorecase = true
@@ -29,9 +32,6 @@ o.showmode = false
 
 -- disable saving when switching buffers
 o.hidden = true
-
--- undo file
-o.undofile = true
 
 -- disable introductory message
 o.shortmess = 'I'

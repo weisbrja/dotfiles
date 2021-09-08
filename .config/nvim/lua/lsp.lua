@@ -1,5 +1,17 @@
 local fn = vim.fn
-local lsp = require "lspconfig"
+local lsp = require 'lspconfig'
+
+-- enable snippet support
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local completionItem = capabilities.textDocument.completion.completionItem
+completionItem.snippetSupport = true
+completionItem.resolveSupport = {
+	properties = {
+		'documentation',
+		'detail',
+		'additionalTextEdits',
+	}
+}
 
 -- lua
 lsp.sumneko_lua.setup {
@@ -14,8 +26,8 @@ lsp.sumneko_lua.setup {
 			},
 			workspace = {
 				library = {
-					[fn.expand '$VIMRUNTIME/lua'] = true,
-					[fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true
+					[fn.expand('$VIMRUNTIME/lua')] = true,
+					[fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
 				}
 			},
 			telemetry = {
@@ -31,10 +43,14 @@ lsp.html.setup {
 }
 
 -- c/c++
-lsp.clangd.setup {}
+lsp.clangd.setup {
+	capablities = capabilities
+}
 
 -- latex
 lsp.texlab.setup {}
 
 -- rust
-lsp.rust_analyzer.setup{}
+lsp.rust_analyzer.setup {
+	capablities = capabilities
+}
