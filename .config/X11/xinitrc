@@ -24,7 +24,7 @@ picom &
 hsetroot
 
 # blue light filter
-blue_light_filter_bright
+bright_blue_light_filter
 
 # status bar
 dwmblocks &
