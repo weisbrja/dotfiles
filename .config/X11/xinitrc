@@ -24,7 +24,7 @@ picom &
 hsetroot
 
 # blue light filter
-redshift -O 3500
+blue_light_filter_bright
 
 # status bar
 dwmblocks &
@@ -33,7 +33,7 @@ dwmblocks &
 dunst &
 
 # automatic screen locking
-xautolock -time 10 -locker slock &
+toggle_xautolock
 
 # remove mouse when idle
 unclutter --timeout 30 &

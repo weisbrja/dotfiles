@@ -7,4 +7,4 @@ else
 	setxkbmap de '' caps:swapescape
 fi
 
-kill -35 $(pidof dwmblocks)
+kill -36 $(pidof dwmblocks)

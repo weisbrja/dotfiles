@@ -2,4 +2,4 @@
 
 pamixer -t
 
-kill -36 $(pidof dwmblocks)
+kill -37 $(pidof dwmblocks)

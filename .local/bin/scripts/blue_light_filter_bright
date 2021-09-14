@@ -1,5 +1,3 @@
 #!/bin/sh
 
-killall redshift
-
 redshift -O 3500 -P

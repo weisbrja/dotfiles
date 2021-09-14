@@ -1,7 +1,0 @@
-#!/bin/sh
-
-connection="$(nmcli -a | grep 'Wired' | awk 'NR == 1 { print $1; exit }')"
-[ -z "$connection" ] && connection="$(nmcli -t -f active,ssid dev wifi | awk -F: '$1 == "yes" { print $2; exit }')"
-[ -z "$connection" ] && connection='Off'
-
-printf ' ^c%s^Net ^c%s^%s ' "$(xgetres foreground)" "$(xgetres color4)" "$connection"

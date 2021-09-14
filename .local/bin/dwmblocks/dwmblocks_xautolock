@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if pgrep xautolock > /dev/null
+then
+	status='On'
+else
+	status='Off'
+fi
+
+printf ' ^c%s^Loc ^c%s^%s ' "$(xgetres foreground)" "$(xgetres color3)" "$status"

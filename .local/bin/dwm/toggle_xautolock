@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if pgrep xautolock
+then
+	pkill xautolock
+else
+	xautolock -locker slock & disown
+fi
+
+kill -35 $(pidof dwmblocks)
