@@ -2,11 +2,19 @@
 %\usepackage[utf8]{inputenc} % not needed for utf8 based engines
 %\usepackage[T1]{fontenc} % do not use for utf8 based engines
 \usepackage{babel}
-\usepackage[left=2cm,right=2cm,top=1cm,bottom=2cm,headsep=1cm,nofoot,includehead]{geometry}
+\usepackage[margin=2.5cm,footskip=0.5cm,includeheadfoot]{geometry}
+
+% title and author
+\newcommand\Title{Titel}
+\newcommand\Author{Jannis Weisbrodt}
 
 % system fonts
 %\usepackage{fontspec}
 %\defaultfontfeatures{Ligatures=TeX}
+
+% higher title
+\usepackage{titling}
+\setlength{\droptitle}{-2cm}
 
 % common packages
 \usepackage{amsmath,amssymb,amsthm,siunitx,float}
@@ -37,20 +45,19 @@
 %\usepgfplotslibrary{external}
 
 % code
-%\colorlet{backgroundcolor}{gray!10}
+%\colorlet{bgcolor}{gray!10}
 %\usepackage{minted}
 %\usemintedstyle{pastie}
 %\setminted{
-%	fontsize=\small,
 %	tabsize=4,
 %	breaklines,
 %	breakbefore=.,
 %	linenos,
 %	numberblanklines=false,
-%	bgcolor=backgroundcolor,
+%	bgcolor=bgcolor
 %}
-%\newminted{java}{firstnumber=last}
-%\newmintinline{java}{bgcolor=}
+%\newminted{rust}{firstnumber=last}
+%\newmintinline{rust}{bgcolor=}
 
 % useful commands
 \usepackage{csquotes} % enquote command
@@ -74,22 +81,33 @@
 \titlespacing*{\subsection}{0cm}{0.7\baselineskip}{0.7\baselineskip}
 \titlespacing*{\subsubsection}{0cm}{0.7\baselineskip}{0.7\baselineskip}
 
-% title and author
-\newcommand\Title{Titel}
-\newcommand\Author{Jannis Weisbrodt}
-
-\title{\textbf{\Title}}
-\author{\Author}
+% title
+\title{\Huge\textbf{\Title}}
+\author{\LARGE\Author}
+\date{\LARGE\today}
 
 % header
 \usepackage{lastpage,fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\textbf{\Author}}
-\fancyhead[C]{\textbf{\Title}}
-\fancyhead[R]{\textbf{Seite \thepage{} von \nohyper{\pageref{LastPage}}}}
-\renewcommand\headrulewidth{0.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{firstpage}{
+	\fancyhf{}
+	\fancyfoot[R]{\textit{Seite \thepage{} von \nohyper{\pageref{LastPage}}}}
+}
+\fancypagestyle{normalpage}{
+	\fancyhf{}
+	\fancyhead[L]{\Title}
+	\fancyhead[R]{\Author}
+	\fancyfoot[R]{\textit{Seite \thepage{} von \nohyper{\pageref{LastPage}}}}
+}
 
 \begin{document}
+
+\maketitle
+
+\thispagestyle{firstpage}
+
+\tableofcontents
+
+\vspace{0.5cm}
 
 \end{document}

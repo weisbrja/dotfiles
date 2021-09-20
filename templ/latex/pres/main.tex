@@ -3,6 +3,10 @@
 %\usepackage[T1]{fontenc} % do not use for utf8 based engines
 \usepackage{babel}
 
+% title and author
+\newcommand\Title{Titel}
+\newcommand\Author{Jannis Weisbrodt}
+
 % system fonts
 %\usepackage{fontspec}
 %\defaultfontfeatures{Ligatures=TeX}
@@ -40,15 +44,19 @@
 %\usepgfplotslibrary{external}
 
 % code
+%\colorlet{bgcolor}{gray!10}
 %\usepackage{minted}
 %\usemintedstyle{pastie}
 %\setminted{
 %	tabsize=4,
 %	breaklines,
-%	breakbefore=.
+%	breakbefore=.,
+%	linenos,
+%	numberblanklines=false,
+%	bgcolor=bgcolor
 %}
-%\newminted{java}{firstnumber=last}
-%\newmintinline{java}{bgcolor=}
+%\newminted{rust}{firstnumber=last}
+%\newmintinline{rust}{bgcolor=}
 
 % useful commands
 \usepackage{csquotes} % enquote command
@@ -57,13 +65,12 @@
 
 % links
 \hypersetup{colorlinks,allcolors=blue} % last package to be loaded
-\usepackage{caption}
 \newcommand{\hrefurl}[2]{\small\texttt{\href{#1}{#2}}}
 \renewcommand{\url}[1]{\hrefurl{#1}{#1}}
 
 % title and author
-\title{Titel}
-\author{Jannis Weisbrodt}
+\title{\Title}
+\author{\Author}
 
 \begin{document}
 
