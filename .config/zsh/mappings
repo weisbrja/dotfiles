@@ -21,7 +21,7 @@ lfcd()
 	then
 		dir="$(cat "$temp")"
 		rm -f "$temp" >/dev/null
-		[[ -d $dir ]] && [[ $dir != $(pwd) ]] && cd "$dir"
+		[[ -d $dir && $dir != $(pwd) ]] && cd "$dir"
 	fi
 	clear
 }

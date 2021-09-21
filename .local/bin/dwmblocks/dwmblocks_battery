@@ -7,5 +7,8 @@ do
 	capacity="$(cat "$battery/capacity")"
 	status="$(sed 's/Full/F/;s/Discharging/-/;s/Charging/+/;s/Not charging/N/;s/Unknown/?/' "$battery/status")"
 
+	# hibernate if discharging and capacity is less than 10%
+	[ "$status" = '-' -a $capacity -lt 10 ] && systemctl hibernate
+
 	printf '^c%s^%3s%% %s ' "$(xgetres color3)" "$capacity" "$status"
 done
